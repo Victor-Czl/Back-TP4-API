@@ -10,9 +10,9 @@ function enregistrerNouveauClient(event) {
     let code = document.getElementById("code").value;
     let societe = document.getElementById("societe").value;
     let contact = document.getElementById("contact").value;
-    const categorieASauvegarder = {code, societe, contact};
+    const clientASauvegarder = {code, societe, contact};
 
-    console.log("Données envoyées : %o", categorieASauvegarder);
+    console.log("Données envoyées : %o", clientASauvegarder);
     const options = {
         method: "POST",
         headers: { // On indique qu'on envoie du JSON
@@ -20,9 +20,9 @@ function enregistrerNouveauClient(event) {
         },
         // On envoie les données au format JSON
         // dans le corps de la requête
-        body: JSON.stringify(categorieASauvegarder)
+        body: JSON.stringify(clientASauvegarder)
     };
-    fetch("api/categories", options)
+    fetch("api/clients", options)
     // Si pas d'erreur réseau, on convertit le json reçu en objet javascript
     .then(response => response.json())
     // On affiche le résultat (même s'il y a eu une erreur de l'API)
